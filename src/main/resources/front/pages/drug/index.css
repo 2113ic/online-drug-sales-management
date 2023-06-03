@@ -1,0 +1,162 @@
+.main-head {
+  display: flex;
+  justify-content: space-between;
+
+  height: 300px;
+  padding: 24px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  background-color: var(--ui-white);
+  box-sizing: border-box;
+}
+
+.head-cover {
+  flex: 1;
+  height: 100%;
+  border-radius: 6px;
+  border: 1px solid var(--ui-light-border);
+}
+
+.head-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 16px;
+}
+
+.head-name {
+  line-height: 50px;
+  font-size: 18px;
+}
+
+.head-name::before {
+  content: '[' attr(data-type) ']';
+}
+
+.head-format,
+.head-supplier {
+  line-height: 2;
+  font-size: 14px;
+  color: var(--ui-gray);
+}
+
+.head-function {
+  height: 100px;
+  color: var(--ui-gray);
+  overflow-y: scroll;
+}
+
+.head-tail {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 32px;
+}
+
+.head-price {
+  color: var(--ui-red);
+  font-size: 18px;
+  font-family: serif;
+}
+
+.count-box {
+  display: flex;
+  border-radius: 4px;
+  color: inherit;
+  border: 1px solid var(--ui-light-border);
+  overflow: hidden;
+}
+
+.count-btn__dec,
+.count-btn__inc {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  font-size: 18px;
+  color: inherit;
+  background-color: white;
+}
+
+.count-input {
+  border: 0;
+  max-width: 32px;
+  text-align: center;
+}
+
+/* ============================== */
+.main-body {
+  padding: 24px;
+  background-color: var(--ui-white);
+  border-radius: 6px 6px 0 0;
+  border-bottom: 1px dashed var(--ui-light-border);
+  overflow: hidden;
+}
+
+.ui-table {
+  border: 0;
+}
+
+td {
+  max-height: 120px;
+}
+
+[data-bind] {
+  display: block;
+  overflow-y: scroll;
+}
+
+/* ============================== */
+.main-foot {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+
+  padding: 24px;
+  border-radius: 0 0 6px 6px;
+  background-color: var(--ui-white);
+}
+
+.foot-image {
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid var(--ui-light-border);
+}
+
+:not(:root):fullscreen::backdrop {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+@media (max-width: 768px) {
+  .main-head {
+    height: auto;
+    flex-direction: column;
+  }
+
+  .head-info,
+  .head-img {
+    width: 100%;
+    padding-left: 0;
+  }
+
+  .head-tail {
+    margin-top: 12px;
+  }
+
+  .main-head,
+  .main-body,
+  .main-foot {
+    padding: 12px;
+  }
+
+  .main-foot {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

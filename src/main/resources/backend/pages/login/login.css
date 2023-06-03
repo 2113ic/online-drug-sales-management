@@ -1,0 +1,42 @@
+
+.dss-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  height: 100vh;
+}
+
+.dss-main-login {
+  width: 260px;
+  margin-bottom: 128px;
+}
+
+.dss-main-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 260px;
+  margin-bottom: 40px;
+}
+
+.dss-main-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+}
+
+.dss-login-detail form div {
+  min-width: 225px;
+  margin-bottom: 12px;
+}
+
+.dss-main-login input {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.dss-login-loginBtn {
+  width: 100%;
+}

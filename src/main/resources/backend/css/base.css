@@ -1,0 +1,75 @@
+/* dss: DrugTemp sales system */
+
+/* ------------------------------------------------- */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, .3);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #ddd;
+  border-radius: 6px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* ------------------------------------------------- */
+
+/* 面向属性css */
+.db {
+  display: block;
+}
+
+.di {
+  display: inline;
+}
+
+.dib {
+  display: inline-block;
+}
+
+.dn {
+  display: none;
+}
+
+.bc-white {
+  background-color: white;
+}
+
+.p024 {
+  padding: 0 24px;
+}
+
+.p012 {
+  padding: 0 12px;
+}
+
+.ta-c {
+  text-align: center;
+}
+
+.ti0 {
+  text-indent: 0;
+}
+
+.red {
+  color: var(--ui-red);
+}
+
+.white {
+  color: #fff;
+}
+
+.gray {
+  color: var(--ui-gray);
+}

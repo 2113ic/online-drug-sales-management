@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springboot.commons.mapper.OrderMapper">
+  <resultMap id="BaseResultMap" type="com.example.springboot.commons.domain.Order">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="uid" jdbcType="VARCHAR" property="uid" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="order_time" jdbcType="TIMESTAMP" property="orderTime" />
+    <result column="user_address" jdbcType="VARCHAR" property="userAddress" />
+    <result column="state"  property="state" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, uid, create_time, order_time, user_address,`state`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from order
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll"
+          resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"></include>
+    from order;
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from order
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.example.springboot.commons.domain.Order">
+    insert into order (id, uid, create_time, 
+      order_time,user_address,state)
+    values (#{id,jdbcType=VARCHAR}, #{uid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP},
+            #{orderTime,jdbcType=TIMESTAMP},#{userAddress},#{state})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.springboot.commons.domain.Order">
+    insert into order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="orderTime != null">
+        order_time,
+      </if>
+      <if test="userAddress != null">
+        user_address,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderTime != null">
+        #{orderTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userAddress != null">
+        #{userAddress},
+      </if>
+      <if test="state != null">
+        #{state},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.springboot.commons.domain.Order">
+    update order
+    <set>
+      <if test="uid != null">
+        uid = #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderTime != null">
+        order_time = #{orderTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userAddress != null">
+        user_address = #{userAddress},
+      </if>
+      <if test="state != null">
+        state = #{state},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.springboot.commons.domain.Order">
+    update order
+    set uid = #{uid,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+        order_time = #{orderTime,jdbcType=TIMESTAMP},
+      user_address = #{userAddress},
+      state = #{state}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

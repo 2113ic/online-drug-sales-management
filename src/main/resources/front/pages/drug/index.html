@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/front/assets/logo.svg" rel="icon" />
+    <title>线上售药平台</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/front/assets/lu2/ui.min.css" />
+    <link rel="stylesheet" href="/front/common/styles/base.css" />
+    <link rel="stylesheet" href="/front/common/styles/header.css" />
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <header>
+      <div class="head">
+        <!-- LOGO -->
+        <a class="logo-box" href="/front/index.html">
+          <img src="/front/assets/logo.svg" alt="logo image" />
+          <h1>线上售药</h1>
+        </a>
+
+        <!-- Menu -->
+        <div class="menu-box">
+          <!-- Search -->
+          <div class="search-box">
+            <form
+              class="search-form"
+              action="/front/pages/search/index.html"
+              autocomplete="off"
+              data-event="submit:search"
+            >
+              <span class="ui-input ui-input-search" align="end">
+                <input
+                  name="q"
+                  class="search-input"
+                  type="search"
+                  placeholder="搜索"
+                  data-ref="searchInput"
+                />
+                <button class="ui-icon-search" type="submit">搜索</button>
+              </span>
+            </form>
+          </div>
+          <!-- User -->
+          <div class="user-box">
+            <input
+              type="checkbox"
+              style="display: none"
+              id="user-menu"
+              data-ref="menuTarget"
+            />
+            <label for="user-menu" tabindex="0">
+              <img
+                src="/front/assets/svg/user.svg"
+                alt="user avatar"
+                data-ref="userAvatar"
+              />
+            </label>
+            <ul class="dropdown-menu">
+              <li class="dropdown-item">
+                <a href="/front/pages/room/index.html">个人中心</a>
+              </li>
+              <li class="dropdown-item">
+                <a href="javascript:" data-event="click:signOut">安全退出</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main hidden>
+      <div class="main-head">
+        <img class="head-cover" alt="cover" data-bind="src:cover[0]" />
+        <!-- prettier-ignore -->
+        <div class="head-info">
+          <div>
+            <div 
+              class="head-name" 
+              data-ref="drugNameRef"
+              data-type=""
+              data-bind="innerHTML:name"
+            ></div>
+            <div class="head-format" data-bind="innerHTML:format">规格：</div>
+            <div class="head-supplier" data-bind="innerHTML:company">供应商：</div>
+            <div class="head-function" data-bind="innerHTML:function">功效：</div>
+          </div>
+          <div class="head-tail">
+            <div class="head-price" data-bind="innerHTML:price">￥</div>
+            <div class="count-box">
+              <button 
+                class="count-btn__dec" 
+                data-event="click:countDec" 
+                data-ref="countDecBtn" 
+                tabindex="0"
+                disabled
+              >-</button>
+              <input
+                class="count-input"
+                type="text"
+                value="1"
+                data-ref="countInput"
+                data-event="input:changeCountValue"
+              />
+              <button 
+                class="count-btn__inc" 
+                data-event="click:countInc"
+                data-ref="countIncBtn" 
+                tabindex="0"
+              >+</button>
+            </div>
+            <img
+              class="add-cart__btn"
+              src="/front/assets/svg/add.svg"
+              alt="add to cart"
+              data-event="click:addCart"
+              tabindex="0"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="main-body">
+        <table class="ui-table">
+          <thead>
+            <tr>
+              <th colspan="2" align="center">药品说明书</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td width="100">性状</td>
+              <td data-bind="innerHTML:traits"></td>
+            </tr>
+            <tr>
+              <td>主治功能</td>
+              <td data-bind="innerHTML:function"></td>
+            </tr>
+            <tr>
+              <td>服用方式</td>
+              <td data-bind="innerHTML:eat"></td>
+            </tr>
+            <tr>
+              <td>不良反应</td>
+              <td data-bind="innerHTML:bad"></td>
+            </tr>
+            <tr>
+              <td>禁忌</td>
+              <td data-bind="innerHTML:ban"></td>
+            </tr>
+            <tr>
+              <td>注意事项</td>
+              <td data-bind="innerHTML:note"></td>
+            </tr>
+            <tr>
+              <td>储存方式</td>
+              <td data-bind="innerHTML:store"></td>
+            </tr>
+            <tr>
+              <td>有效日期</td>
+              <td data-bind="innerHTML:shelflife"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="main-foot" data-event="click:fullscreenImg">
+        <template data-clone="imageItem:false:cover">
+          <img
+            class="foot-image"
+            alt="drug image"
+            data-target="imageItem"
+            data-bind="src:$item"
+            data-event="click:fullscreenImg"
+          />
+        </template>
+      </div>
+    </main>
+
+    <script src="/front/assets/lu2/all.min.js"></script>
+    <script src="./index.js" type="module"></script>
+  </body>
+</html>

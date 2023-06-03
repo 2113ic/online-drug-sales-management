@@ -1,0 +1,62 @@
+:root {
+  --ui-component-height: 36px;
+  --ui-lighttip-width: auto;
+}
+
+ui-lightTip[type="error"], 
+ui-lightTip[type="success"] {
+  padding: 8px 18px;
+}
+
+body {
+  margin: 0;
+  color: var(--ui-dark);
+  background-color: hsl(220, 6%, 97%);
+}
+
+main {
+  max-width: 1000px;
+  padding: 0 24px 24px;
+  margin: 64px auto 24px;
+}
+
+@media (max-width: 576px) {
+  main {
+    padding: 0 12px 24px;
+  }
+}
+
+.empty-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 300px;
+  text-align: center;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(93, 93, 93, 0.12);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 6px;
+}

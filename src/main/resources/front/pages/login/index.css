@@ -1,0 +1,95 @@
+body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+main {
+  height: fit-content;
+  padding: 24px;
+  margin: 0;
+  border-radius: 12px;
+  background-color: var(--ui-white);
+}
+
+.bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url('/front/assets/login-bg.jpg') center/cover
+    no-repeat;
+  background-attachment: fixed;
+}
+
+.logo-box {
+  display: flex;
+  justify-content: center;
+  margin: 72px 0 42px;
+}
+
+.logo-box h1 {
+  margin: 6px 0 0 6px;
+  line-height: 42px;
+  font-size: 32px;
+  font-weight: normal;
+  font-family: serif;
+  white-space: nowrap;
+  color: var(--ui-dark);
+}
+
+[name="login"] {
+  display: none;
+}
+
+.login-head label {
+  line-height: 38px;
+  padding: 0 8px;
+  font-size: 18px;
+}
+
+#signInTab:checked ~ .login-body .login-card:first-child,
+#signUpTab:checked ~ .login-body .login-card:last-child {
+  display: block;
+}
+
+#signInTab:checked ~ .login-head label:first-child,
+#signUpTab:checked ~ .login-head label:last-child {
+  padding: 4px 8px;
+  color: var(--ui-blue);
+  background-color: var(--ui-list-selected);
+  border-radius: 4px;
+}
+
+.login-card {
+  display: none;
+  width: 260px;
+  padding-top: 12px;
+}
+
+.login-card form div {
+  min-width: 225px;
+  margin-bottom: 12px;
+}
+
+.login-card input {
+  width: 100%;
+}
+
+.forgot-box {
+  margin-top: 12px;
+  text-align: right;
+  color: var(--ui-gray);
+}
+
+.valid-code__box {
+  display: flex;
+}
+
+[name="code"] {
+  flex: 3;
+}
+
+.send-code__btn {
+  flex: 2;
+  margin-left: 4px;
+}

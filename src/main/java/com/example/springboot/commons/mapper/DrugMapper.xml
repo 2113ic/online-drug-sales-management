@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springboot.commons.mapper.DrugMapper">
+  <resultMap id="BaseResultMap"
+             type="com.example.springboot.commons.domain.Drug">
+    <id column="did" property="did"/>
+    <result column="name"  property="name"/>
+    <result column="cover"  property="cover"/>
+    <result column="price" property="price"/>
+    <result column="type"  property="type"/>
+    <result column="sort"  property="sort"/>
+    <result column="traits"  property="traits"/>
+    <result column="function" property="function"/>
+    <result column="format"  property="format"/>
+    <result column="store"  property="store"/>
+    <result column="eat" property="eat"/>
+    <result column="bad" property="bad"/>
+    <result column="ban" property="ban"/>
+    <result column="note"  property="note"/>
+    <result column="company"  property="company"/>
+    <result column="shelfLife" property="shelflife"/>
+    <result column="count" property="count"/>
+  </resultMap>
+  <sql id="Base_Column_List">
+    did, name, cover, price, type, sort, traits, `function`, format, store, eat, bad, ban,
+    note, company, shelfLife, count
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String"
+          resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from drug
+    where did = #{did}
+  </select>
+  <select id="selectDrugByType" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from drug where type = #{type}
+  </select>
+  <select id="selectDrugByName" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from drug where name like '%' #{name} '%'
+  </select>
+  <select id="selectDrugByFunction" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from drug where ``function`` like '%' #{function} '%'
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from drug limit #{begin},#{size}
+  </select>
+  <select id="selectDrugByCount" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from drug where count &lt;= #{count}
+  </select>
+  <select id="selectCount" resultType="java.lang.Integer">
+    select count(*)
+    from drug
+  </select>
+  <select id="selectDrugByCartIds"
+          resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from drug
+    inner join cart
+    on drug.did = cart.did
+    where cart.bid in
+    <foreach collection="cartIds" item="cartId" open="(" close=")" separator=",">
+      #{cartId}
+    </foreach>
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete
+    from drug
+    where did = #{did}
+  </delete>
+  <insert id="insert"
+          parameterType="com.example.springboot.commons.domain.Drug">
+    insert into drug (did, name, cover,
+                      price, type, sort, traits,
+                      `function`, format, store,
+                      eat, bad, ban, note,
+                      company, shelfLife, count)
+    values (#{did}, #{name},
+            #{cover},
+            #{price}, #{type},
+            #{sort}, #{traits},
+            #{function}, #{format},
+            #{store},
+            #{eat}, #{bad},
+            #{ban}, #{note},
+            #{company}, #{shelflife},
+            #{count})
+  </insert>
+  <insert id="insertSelective"
+          parameterType="com.example.springboot.commons.domain.Drug">
+    insert into drug
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="did != null">
+        did,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="cover != null">
+        cover,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+      <if test="traits != null">
+        traits,
+      </if>
+      <if test="function != null">
+        `function`,
+      </if>
+      <if test="format != null">
+        format,
+      </if>
+      <if test="store != null">
+        store,
+      </if>
+      <if test="eat != null">
+        eat,
+      </if>
+      <if test="bad != null">
+        bad,
+      </if>
+      <if test="ban != null">
+        ban,
+      </if>
+      <if test="note != null">
+        note,
+      </if>
+      <if test="company != null">
+        company,
+      </if>
+      <if test="shelflife != null">
+        shelfLife,
+      </if>
+      <if test="count != null">
+        count,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="did != null">
+        #{did},
+      </if>
+      <if test="name != null">
+        #{name},
+      </if>
+      <if test="cover != null">
+        #{cover},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=REAL},
+      </if>
+      <if test="type != null">
+        #{type},
+      </if>
+      <if test="sort != null">
+        #{sort},
+      </if>
+      <if test="traits != null">
+        #{traits},
+      </if>
+      <if test="function != null">
+        #{function},
+      </if>
+      <if test="format != null">
+        #{format},
+      </if>
+      <if test="store != null">
+        #{store},
+      </if>
+      <if test="eat != null">
+        #{eat},
+      </if>
+      <if test="bad != null">
+        #{bad},
+      </if>
+      <if test="ban != null">
+        #{ban},
+      </if>
+      <if test="note != null">
+        #{note},
+      </if>
+      <if test="company != null">
+        #{company},
+      </if>
+      <if test="shelflife != null">
+        #{shelflife},
+      </if>
+      <if test="count != null">
+        #{count,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <insert id="insertBatch">
+    insert into drug(did, name, cover, price, type, sort, traits, `function`,
+    format, store, eat, bad, ban,
+    note, company, shelfLife, count)
+    values
+    <foreach collection="list" item="obj" separator=",">
+      (#{obj.did},#{ obj.name},#{ obj.cover},#{ obj.price},#{ obj.type},#{ obj.sort},#{ obj.traits},#{ obj.function},#{ obj.format},#{ obj.store},#{ obj.eat},#{ obj.bad},#{ obj.ban},
+      #{obj.note},#{ obj.company},#{ obj.shelflife},#{ obj.count})
+    </foreach>
+  </insert>
+  <update id="updateByPrimaryKeySelective"
+          parameterType="com.example.springboot.commons.domain.Drug">
+    update drug
+    <set>
+      <if test="name != null">
+        name = #{name},
+      </if>
+      <if test="cover != null">
+        cover = #{cover},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=REAL},
+      </if>
+      <if test="type != null">
+        type = #{type},
+      </if>
+      <if test="sort != null">
+        sort = #{sort},
+      </if>
+      <if test="traits != null">
+        traits = #{traits},
+      </if>
+      <if test="function != null">
+        `function` = #{function},
+      </if>
+      <if test="format != null">
+        format = #{format},
+      </if>
+      <if test="store != null">
+        store = #{store},
+      </if>
+      <if test="eat != null">
+        eat = #{eat},
+      </if>
+      <if test="bad != null">
+        bad = #{bad},
+      </if>
+      <if test="ban != null">
+        ban = #{ban},
+      </if>
+      <if test="note != null">
+        note = #{note},
+      </if>
+      <if test="company != null">
+        company = #{company},
+      </if>
+      <if test="shelflife != null">
+        shelfLife = #{shelflife},
+      </if>
+      <if test="count != null">
+        count = #{count,jdbcType=BIGINT},
+      </if>
+    </set>
+    where did = #{did}
+  </update>
+  <update id="updateByPrimaryKey"
+          parameterType="com.example.springboot.commons.domain.Drug">
+    update drug
+    set name      = #{name},
+        cover     = #{cover},
+        price     = #{price},
+        type      = #{type},
+        sort      = #{sort},
+        traits    = #{traits},
+        `function`  = #{function},
+        format    = #{format},
+        store     = #{store},
+        eat       = #{eat},
+        bad       = #{bad},
+        ban       = #{ban},
+        note      = #{note},
+        company   = #{company},
+        shelfLife = #{shelflife},
+        count     = #{count}
+    where did = #{did}
+  </update>
+</mapper>

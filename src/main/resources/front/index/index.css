@@ -1,0 +1,28 @@
+main {
+  border-radius: 12px;
+  background-color: var(--ui-white);
+}
+
+.nav {
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--ui-light-border);
+}
+
+.nav-item {
+  line-height: 48px;
+  padding: 4px 16px;
+}
+
+.nav-item:hover {
+  color: var(--ui-green);
+}
+
+.nav-active {
+  color: var(--ui-white);
+  background-color: var(--ui-green);
+  border-radius: 4px;
+}
+
+.nav-active:hover {
+  color: var(--ui-white);
+}

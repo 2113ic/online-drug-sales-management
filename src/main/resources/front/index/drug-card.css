@@ -1,0 +1,63 @@
+.drug-cards {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: start;
+
+  padding: 12px 0;
+}
+
+@media (max-width: 960px) {
+  .drug-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .drug-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.drug-card {
+  padding: 8px;
+
+  border: 1px solid var(--ui-light-border);
+  border-radius: 6px;
+  transition: box-shadow 0.35s;
+  box-sizing: border-box;
+}
+
+.drug-card:hover {
+  box-shadow: 0 4px 34px rgb(0 0 0 / 10%);
+}
+
+.drug-cover {
+  width: 100%;
+  height: 144px;
+}
+
+.drug-format {
+  font-size: 14px;
+  margin: 8px 0;
+  color: var(--ui-gray);
+}
+
+.drug-tail {
+  display: flex;
+  justify-content: space-between;
+}
+
+.drug-count {
+  font-size: 14px;
+  color: var(--ui-gray);
+}
+
+.drug-price {
+  font-family: serif;
+  color: var(--ui-red);
+}
+
+.drug-price::after {
+  content: '￥';
+}

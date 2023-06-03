@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="/front/assets/logo.svg" rel="icon" />
+    <title>线上售药平台</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/front/assets/lu2/ui.min.css" />
+    <link rel="stylesheet" href="/front/common/styles/base.css" />
+    <link rel="stylesheet" href="/front/common/styles/header.css" />
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="/front/index/drug-card.css" />
+  </head>
+  <body>
+    <header>
+      <div class="head">
+        <!-- LOGO -->
+        <a class="logo-box" href="/front/index.html">
+          <img src="/front/assets/logo.svg" alt="logo image" />
+          <h1>线上售药</h1>
+        </a>
+
+        <!-- Menu -->
+        <div class="menu-box">
+          <!-- Search -->
+          <div class="search-box">
+            <form
+              class="search-form"
+              action="/front/pages/search/index.html"
+              autocomplete="off"
+              data-event="submit:search"
+            >
+              <span class="ui-input ui-input-search" align="end">
+                <input
+                  name="q"
+                  class="search-input"
+                  type="search"
+                  placeholder="搜索"
+                  data-ref="searchInput"
+                />
+                <button class="ui-icon-search" type="submit">搜索</button>
+              </span>
+            </form>
+          </div>
+          <!-- User -->
+          <div class="user-box">
+            <input
+              type="checkbox"
+              style="display: none"
+              id="user-menu"
+              data-ref="menuTarget"
+            />
+            <label for="user-menu" tabindex="0">
+              <img
+                src="/front/assets/svg/user.svg"
+                alt="user avatar"
+                data-ref="userAvatar"
+              />
+            </label>
+            <ul class="dropdown-menu swing-in-top-fwd">
+              <li class="dropdown-item">
+                <a href="/front/pages/room/index.html">个人中心</a>
+              </li>
+              <li class="dropdown-item">
+                <a href="javascript:" data-event="click:signOut">安全退出</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main >
+      <div class="search-tip" data-ref="searchTip">搜索中…</div>
+      <!-- Drug Cards -->
+      <div class="drug-cards" hidden>
+        <template data-clone="drugCardItem:true">
+          <a
+            class="drug-card"
+            data-target="drugCardItem"
+            data-bind="href:did"
+            href="/front/pages/drug/index.html?did="
+          >
+            <img
+              class="drug-cover"
+              alt="drug cover"
+              loading="lazy"
+              data-bind="src:cover[0]"
+            />
+            <div class="drug-card__content">
+              <div class="drug-name" data-bind="innerHTML:name"></div>
+              <div class="drug-format" data-bind="innerHTML:format"></div>
+              <div class="drug-tail">
+                <span 
+                  class="drug-count" 
+                  data-bind="innerHTML:count"
+                >库存：</span>
+                <span class="drug-price" data-bind="innerHTML:price"></span>
+              </div>
+            </div>
+          </a>
+        </template>
+      </div>
+    </main>
+
+    <!-- javascript -->
+    <script src="/front/assets/lu2/all.min.js"></script>
+    <script src="./index.js" type="module"></script>
+  </body>
+</html>

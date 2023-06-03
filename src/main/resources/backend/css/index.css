@@ -1,0 +1,168 @@
+
+.dss-wrapper {
+  display: flex;
+}
+
+/* ------------------------------------------------- */
+
+.dss-nav {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+
+  width: 225px;
+  border-right: 1px solid #eee;
+  box-shadow: 0 2px 10px rgb(18 18 18 / 10%);
+  box-sizing: border-box;
+}
+
+.dss-nav-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 128px;
+}
+
+.dss-nav-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+}
+
+/* ------------------------------------------------- */
+
+.dss-nav-list {
+  line-height: 48px;
+}
+
+.dss-nav-list-ul {
+  text-indent: 32px;
+}
+
+.dss-nav-list-ul > .layui-this {
+  border-left: 4px solid #0057c3;
+}
+
+.dss-nav-list-li {
+  border-top: 1px solid #ededef;
+  cursor: pointer;
+  transition: background .35s, text-indent .35s;
+}
+
+.dss-nav-list-li:hover {
+  text-indent: 36px;
+  background-color: #0073ff3a;
+}
+
+/* ------------------------------------------------- */
+
+.dss-main {
+  width: calc(100% - 225px);
+  margin-left: 225px;
+}
+
+/* ------------------------------------------------- */
+
+.dss-main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  line-height: 52px;
+  border-bottom: 1px solid #d0d0d5;
+}
+
+input.dss-header-search {
+  width: 225px;
+  border: none;
+}
+
+.dss-header-menu {
+  font-family: serif;
+  font-size: 14px;
+  color: #888888;
+}
+
+.dss-header-menu span {
+  margin-right: 16px;
+  vertical-align: -.2ex;
+}
+
+.dss-muen-signOut {
+  cursor: pointer;
+}
+
+.dss-signOut {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+  vertical-align: -.4ex;
+}
+
+/* ------------------------------------------------- */
+
+.dss-main-body {
+  padding: 24px;
+}
+
+
+/* ------------------------------------------------- */
+
+/* dss-main-home */
+
+.dss-body-row {
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.dss-body-data-card {
+  float: left;
+  min-width: 200px;
+  padding-top: 16px;
+  margin: 24px;
+  border-radius: 6px;
+  box-shadow: 0 1px 1px rgb(18 18 18 / 10%);
+}
+
+.dss-data-title {
+  line-height: 32px;
+  text-indent: 24px;
+  font-weight: bold;
+  font-size: smaller;
+  border-bottom: 1px solid #ededef;
+}
+
+.dss-data-content {
+  padding: 24px;
+  font-size: x-large;
+}
+
+.dss-data-list {
+  padding: 24px 48px;
+}
+
+.dss-data-list-ul {
+  display: flex;
+  flex-wrap: wrap;
+  line-height: 42px;
+  justify-content: space-around;
+}
+
+.dss-data-list-ul li {
+  margin: 0 12px;
+}
+
+
+.dss-data-list-ul li a {
+  padding: .2em .5em;
+  background-color: #0073ff3a;
+  border-radius: 3px;
+}
+
+/* ------------------------------------------------- */
+
+.layui-table-view {
+  margin: 0;
+}

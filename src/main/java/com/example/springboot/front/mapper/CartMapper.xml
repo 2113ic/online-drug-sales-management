@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springboot.front.mapper.CartMapper">
+  <resultMap id="BaseResultMap" type="com.example.springboot.front.domain.Cart">
+    <id column="bid" jdbcType="VARCHAR" property="bid"/>
+    <result column="did" jdbcType="VARCHAR" property="did"/>
+    <result column="count" jdbcType="INTEGER" property="count"/>
+  </resultMap>
+
+  <select id="selectCartByUid"
+          resultType="com.example.springboot.front.domain.Cart">
+    select c.bid, c.did, c.count, d.name, d.cover, d.price, d.format
+    from cart c
+           inner join drug d
+                      on c.did = d.did
+    where c.uid = #{uid}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select c.bid, c.did, c.count, d.name, d.cover, d.price, d.format
+    from cart c
+           inner join drug d on c.did = d.did
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete
+    from cart
+    where bid = #{bid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert">
+    insert into cart (bid, uid, did, count)
+    values (#{bid}, #{uid}, #{did}, #{count})
+  </insert>
+
+  <update id="updateCart">
+    update cart
+    set count = #{count}
+    where bid = #{bid}
+  </update>
+</mapper>

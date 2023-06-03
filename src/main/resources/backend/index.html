@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>在线药物销售管理系统</title>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="assets/logo.png" rel="icon" />
+
+    <!-- css -->
+    <link href="css/reset.css" rel="stylesheet" />
+    <link href="layui/css/layui.css" rel="stylesheet" />
+    <link href="css/index.css" rel="stylesheet" />
+    <link href="css/base.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="dss-wrapper">
+      <div class="dss-nav bc-white">
+        <div class="dss-nav-logo">
+          <img alt="logo" class="dss-nav-avatar" src="assets/userLogin.png" />
+        </div>
+        <div class="dss-nav-list">
+          <ul class="dss-nav-list-ul">
+            <li class="dss-nav-list-li">主页</li>
+            <li class="dss-nav-list-li">用户管理</li>
+            <li class="dss-nav-list-li">药品管理</li>
+            <li class="dss-nav-list-li">销售管理</li>
+            <li class="dss-nav-list-li">订单管理</li>
+            <li class="dss-nav-list-li">供应商管理</li>
+            <li class="dss-nav-list-li">回收站</li>
+          </ul>
+        </div>
+      </div>
+      <div class="dss-main">
+        <div class="dss-main-header bc-white">
+          <input
+            autocomplete="off"
+            class="layui-input dss-header-search"
+            name="searchText"
+            placeholder="请输入标题"
+            type="search"
+          />
+          <div class="dss-header-menu">
+            <div class="dss-muen-signOut dib">
+              <img alt="" class="dss-signOut" src="assets/signOut.svg" />
+              退出
+            </div>
+          </div>
+        </div>
+
+        <div class="dss-main-body">
+          <!-- 主页 -->
+          <div class="dss-main-home dss-tabItem dn">
+            <div class="dss-body-row">
+              <div class="dss-body-data-card bc-white">
+                <div class="dss-data-title">用户总量</div>
+                <div class="dss-data-content userCount">8,720</div>
+              </div>
+              <div class="dss-body-data-card bc-white">
+                <div class="dss-data-title">药品总销量</div>
+                <div class="dss-data-content drugCount">23,259</div>
+              </div>
+              <div class="dss-body-data-card bc-white">
+                <div class="dss-data-title">订单总量</div>
+                <div class="dss-data-content salesCount">325</div>
+              </div>
+              <div class="dss-body-data-card bc-white">
+                <div class="dss-data-title">待验收</div>
+                <div class="dss-data-content">2</div>
+              </div>
+            </div>
+            <div class="dss-body-row">
+              <div class="dss-body-data-card bc-white">
+                <div class="dss-data-title ta-c ti0">库存低于1000</div>
+                <div class="dss-data-list">
+                  <ul class="dss-data-list-ul">
+                    <li><a></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 用户管理 -->
+          <div class="dss-main-user dss-tabItem dn">
+            <div class="dss-body-row">
+              <div class="dss-body-data-card bc-white">
+                <div class="dss-data-title">月活跃量</div>
+                <div class="dss-data-content">23,259</div>
+              </div>
+              <div class="dss-body-data-card bc-white">
+                <div class="dss-data-title">周活跃量</div>
+                <div class="dss-data-content">8,720</div>
+              </div>
+              <div class="dss-body-data-card bc-white">
+                <div class="dss-data-title">日活跃量</div>
+                <div class="dss-data-content">325</div>
+              </div>
+            </div>
+            <div class="dss-body-row bc-white">
+              <table id="user-table" lay-filter="user"></table>
+            </div>
+          </div>
+
+          <!-- 药品管理 -->
+          <div class="dss-main-drug dss-tabItem dn">
+            <div class="dss-body-row">
+              <div class="dss-body-data-card bc-white">
+                <div class="dss-data-title">总库存</div>
+                <div class="dss-data-content">23,259</div>
+              </div>
+              <div class="dss-body-data-card bc-white">
+                <div class="dss-data-title">操作</div>
+                <div class="dss-data-content">
+                  <button
+                    class="layui-btn layui-btn-sm"
+                    id="importDrugMessage"
+                    lay-event="importDrugMessage"
+                  >
+                    批量导入
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="dss-body-row">
+              <table id="drug-table" lay-filter="drug"></table>
+            </div>
+          </div>
+
+          <!-- 销量管理 -->
+          <div class="dss-main-sales dss-tabItem dn">
+            <div class="dss-body-row">
+              <div class="dss-body-data-card bc-white">
+                <div class="dss-data-title">月销量</div>
+                <div class="dss-data-content">23,259</div>
+              </div>
+              <div class="dss-body-data-card bc-white">
+                <div class="dss-data-title">周销量</div>
+                <div class="dss-data-content">8,720</div>
+              </div>
+              <div class="dss-body-data-card bc-white">
+                <div class="dss-data-title">日销量</div>
+                <div class="dss-data-content">325</div>
+              </div>
+            </div>
+            <div class="dss-body-row bc-white">
+              <table id="sales-table" lay-filter="sales"></table>
+            </div>
+          </div>
+
+          <!-- 订单管理 -->
+          <div class="dss-main-order dss-tabItem dn">
+            <div class="dss-body-row">
+              <div class="dss-body-data-card bc-white">
+                <div class="dss-data-title">已验收</div>
+                <div class="dss-data-content">23,259</div>
+              </div>
+              <div class="dss-body-data-card bc-white">
+                <div class="dss-data-title">待验收</div>
+                <div class="dss-data-content">8,720</div>
+              </div>
+            </div>
+            <div class="dss-body-row bc-white">
+              <table id="order-table" lay-filter="order"></table>
+            </div>
+          </div>
+
+          <!-- 供应商管理 -->
+          <div class="dss-main-supplier dss-tabItem dn">
+            <!-- <div class="dss-body-row"></div> -->
+            <div class="dss-body-row bc-white">
+              <table id="supplier-table" lay-filter="supplier"></table>
+            </div>
+          </div>
+
+          <!-- 回收站 -->
+          <div class="dss-main-recycleBin dss-tabItem dn">
+            <table id="recycleBin-table" lay-filter="recycleBin"></table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--  工具模板 --  user -->
+    <script id="userToolbar" type="text/html">
+      <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm" lay-event="delete">删除</button>
+        <button class="layui-btn layui-btn-sm" lay-event="update">编辑</button>
+      </div>
+    </script>
+
+    <!--  工具模板 -- drug  -->
+    <script id="drugToolbar" type="text/html">
+      <div class="layui-btn-container">
+        <button
+          id="downloadTemplate"
+          class="layui-btn layui-btn-sm"
+          lay-event="downloadTemplate"
+        >
+          下载模板
+        </button>
+      </div>
+    </script>
+
+    <script id="drugToolbarItem" type="text/html">
+      <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm" lay-event="delete">删除</button>
+        <button class="layui-btn layui-btn-sm" lay-event="update">编辑</button>
+      </div>
+    </script>
+
+    <!-- JavaScript -->
+    <script src="layui/layui.js"></script>
+    <script src="utils/util.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>

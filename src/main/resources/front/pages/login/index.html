@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>线上售药平台</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/front/assets/lu2/ui.min.css" />
+    <link rel="stylesheet" href="/front/common/styles/base.css" />
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body class="bg">
+    <a class="logo-box" href="/front/index.html">
+      <img src="/front/assets/logo.svg" alt="logo image" />
+      <h1>线上售药</h1>
+    </a>
+    <main>
+      <input type="radio" id="signInTab" name="login" checked />
+      <input type="radio" id="signUpTab" name="login" />
+
+      <div class="login-head">
+        <label for="signInTab">登录</label>
+        <label for="signUpTab">注册</label>
+      </div>
+      <div class="login-body">
+        <!-- 登录 -->
+        <div class="login-card">
+          <form data-event="submit:doSignIn">
+            <div class="from-item">
+              <input
+                class="ui-input"
+                name="phone"
+                type="tel"
+                placeholder="手机号"
+                data-ref="signInPhone"
+              />
+            </div>
+            <div class="from-item">
+              <input
+                class="ui-input"
+                name="password"
+                type="password"
+                placeholder="密码"
+                data-ref="signInPassword"
+              />
+            </div>
+            <button class="ui-button" width="100%">登录</button>
+          </form>
+          <div class="forgot-box">
+            <a href="/front/pages/reset/index.html">忘记密码？</a>
+          </div>
+        </div>
+        <!-- 注册 -->
+        <div class="login-card">
+          <form data-event="submit:doSignUp">
+            <div class="form-item">
+              <input
+                class="ui-input"
+                name="name"
+                type="text"
+                maxlength="20"
+                minlength="2"
+                placeholder="用户名"
+                data-ref="signUpName"
+              />
+            </div>
+            <div>
+              <input
+                class="ui-input"
+                name="phone"
+                type="tel"
+                placeholder="手机号"
+                data-ref="signUpPhone"
+              />
+            </div>
+            <div class="from-item valid-code__box">
+              <input
+                class="ui-input"
+                name="code"
+                type="text"
+                placeholder="验证码"
+                data-ref="signUpCode"
+              />
+              <button
+                class="ui-button send-code__btn"
+                data-event="click:countdown"
+              >
+                发送验证码
+              </button>
+            </div>
+            <div class="from-item">
+              <input
+                class="ui-input"
+                name="password"
+                type="password"
+                placeholder="密码"
+                data-ref="signUpPassword"
+              />
+            </div>
+            <div class="from-item">
+              <input
+                class="ui-input"
+                type="password"
+                placeholder="确认密码"
+                data-ref="signUpConfirmPassword"
+              />
+            </div>
+            <button class="ui-button" width="100%">注册</button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="/front/assets/lu2/all.min.js"></script>
+    <script src="/front/assets/md5/md5.min.js"></script>
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>

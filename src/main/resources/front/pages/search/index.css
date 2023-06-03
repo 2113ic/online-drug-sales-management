@@ -1,0 +1,17 @@
+main {
+  padding-top: 24px;
+  border-radius: 12px;
+  background-color: var(--ui-white);
+}
+
+.main-searchTip {
+  height: 50px;
+  padding: 0 24px;
+  margin: 12px 0;
+  line-height: 50px;
+  border-radius: 8px;
+}
+
+.count {
+  color: var(--ui-green);
+}

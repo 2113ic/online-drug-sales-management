@@ -1,0 +1,308 @@
+main {
+  display: flex;
+  padding: 0;
+  background-color: #fff;
+  border-radius: 12px;
+}
+
+.main-nav {
+  flex: 1;
+  padding: 24px;
+  border-right: 1px solid var(--ui-light-border);
+  cursor: default;
+}
+
+.nav-icon {
+  vertical-align: -0.5ex;
+  margin-right: 1px;
+}
+
+.contents {
+  flex: 5;
+  padding: 24px;
+  overflow-x: auto;
+}
+
+.nav-btn {
+  padding: 0 12px;
+  line-height: 42px;
+  transition: text-indent 0.2s;
+  white-space: nowrap;
+}
+
+.nav-btn[open] {
+  color: var(--ui-blue);
+  border-radius: 8px;
+  background-color: var(--ui-list-selected);
+}
+
+/* ========================================= */
+.user-info__box {
+  padding: 24px;
+  border-radius: 12px;
+  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.user-info__avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 8px;
+  border: 2px solid #fff;
+  vertical-align: bottom;
+}
+
+.user-info__content {
+  display: inline-block;
+  padding-left: 12px;
+  vertical-align: top;
+}
+
+.user-info__name {
+  font-size: 18px;
+  line-height: 32px;
+}
+
+.user-info__address {
+  color: var(--ui-gray);
+}
+
+.revise-box {
+  margin-top: 24px;
+}
+
+.revise-title {
+  font-size: 18px;
+  line-height: 38px;
+}
+
+.address-btn,
+.name-btn {
+  margin-top: 8px;
+}
+
+.revise-password__box {
+  max-width: 260px;
+}
+
+.revise-password__box form div {
+  min-width: 225px;
+  margin-bottom: 12px;
+}
+
+.revise-password__box input {
+  width: 100%;
+}
+
+.valid-code__box {
+  display: flex;
+}
+
+[name='code'] {
+  flex: 3;
+}
+
+.send-code__btn {
+  flex: 2;
+  margin-left: 4px;
+}
+
+@media (max-width: 576px) {
+  .main-nav,
+  .contents,
+  .user-info__box {
+    padding: 12px;
+  }
+
+  .main-nav {
+    text-align: center;
+  }
+
+  .user-info__content {
+    padding-left: 0;
+  }
+
+  .nav-text {
+    display: none;
+  }
+}
+
+/* =========================== */
+.order-item .ui-button {
+  height: 32px;
+  padding: 0;
+}
+
+.order-item {
+  margin: 12px 0;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed var(--ui-light-border);
+}
+
+.order-item:last-child {
+  border: none;
+}
+
+.order-item .order-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.order-item__num {
+  font-weight: 600;
+  font-size: 18px;
+  color: #4c5161;
+}
+
+.order-item__state {
+  color: gray;
+}
+
+.order-item__list {
+  display: flex;
+
+  margin: 12px 0;
+}
+
+.order-cover-box {
+  flex: 1;
+}
+
+.order-item__cover {
+  width: 100%;
+  border: 1px solid var(--ui-light-border);
+  border-radius: 8px;
+}
+
+.order-item__info {
+  flex: 4;
+  padding-left: 16px;
+}
+
+.order-item__title {
+  font-size: 18px;
+}
+
+.order-item__format {
+  font-size: 14px;
+  color: var(--ui-gray);
+}
+
+.order-item__tools {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 576px) {
+  .order-item__info {
+    padding-left: 8px;
+  }
+}
+/* ================================= */
+.cart-head {
+  display: flex;
+  justify-content: space-between;
+  min-width: 756px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed var(--ui-light-border);
+  line-height: 28px;
+}
+
+.cart-head__item,
+.cart-col {
+  flex: 2;
+}
+
+.flex3 {
+  flex: 3;
+}
+
+.flex1 {
+  flex: 1;
+}
+
+.cart-body {
+  min-width: 756px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 12px;
+}
+
+.cart-checkbox {
+  display: flex;
+}
+
+.cart-drug-cover {
+  width: 120px;
+  border-radius: 6px;
+  border: 1px solid var(--ui-light-border);
+}
+
+.count-box {
+  display: inline-flex;
+  border-radius: 4px;
+  color: inherit;
+  border: 1px solid var(--ui-light-border);
+  overflow: hidden;
+}
+
+.count-btn__dec,
+.count-btn__inc {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  font-size: 18px;
+  color: inherit;
+  background-color: white;
+}
+
+.count-input {
+  border: 0;
+  max-width: 32px;
+  text-align: center;
+}
+
+.cart-item__sum {
+  font-weight: 600;
+}
+
+.cart-item__price,
+.cart-item__sum {
+  font-family: serif;
+  line-height: 28px;
+}
+
+.cart-item__format {
+  font-size: 14;
+  color: var(--ui-gray);
+}
+
+.cart-item__del:hover {
+  color: var(--ui-red);
+}
+
+/* ============================ */
+.cart-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 52px;
+  margin-top: 12px;
+  border-top: 1px dashed var(--ui-light-border);
+}
+
+.cart-foot__pay {
+  display: flex;
+  align-items: center;
+}
+
+.pay-sum {
+  margin-right: 12px;
+  font-size: 20px;
+  color: var(--ui-red);
+}
